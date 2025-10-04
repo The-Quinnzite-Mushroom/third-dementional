@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8l4x0wlwjoo4"]
+
+[ext_resource type="Script" uid="uid://b6grpvcckycyo" path="res://Player/weapons/bullet_spawning.gd" id="1_q6xbv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5luyk"]
+size = Vector2(52, 9)
+
+[node name="baseWeapon" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(16, 0.5)
+shape = SubResource("RectangleShape2D_5luyk")
+
+[node name="bulletSpawning" type="Node2D" parent="."]
+position = Vector2(42, 0)
+script = ExtResource("1_q6xbv")
