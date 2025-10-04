@@ -1,16 +1,13 @@
-[gd_resource type="Resource" script_class="Weapons" load_steps=9 format=3 uid="uid://bvyccn88osnrs"]
+[gd_resource type="Resource" script_class="Weapons" load_steps=6 format=3 uid="uid://bvyccn88osnrs"]
 
 [ext_resource type="Script" uid="uid://6ifbrn8a245m" path="res://Player/weapons/projectile_data.gd" id="1_7k4ex"]
 [ext_resource type="Script" uid="uid://c4hvgj3pwjg3o" path="res://Player/weapons/weapons_data.gd" id="1_32ny1"]
-[ext_resource type="Resource" uid="uid://dkretlbgb71ij" path="res://Player/weapons/weaponTypes/BaseWeapon/base_projectile.tres" id="2_kugdn"]
 [ext_resource type="PackedScene" uid="uid://b8l4x0wlwjoo4" path="res://Player/weapons/weaponTypes/BaseWeapon/base_weapon.tscn" id="3_kugdn"]
-[ext_resource type="Resource" uid="uid://dvm84wh0urh5p" path="res://Player/weapons/weaponTypes/BloodGun/blood_projectile.tres" id="3_yphgj"]
 [ext_resource type="PackedScene" uid="uid://co5k3a2j406ta" path="res://Player/weapons/weaponTypes/BloodGun/blood_gun.tscn" id="4_e36g2"]
-[ext_resource type="Resource" uid="uid://dl1758elcomyw" path="res://Player/weapons/weaponTypes/Shotgun/shotgun_projectile.tres" id="4_q2mas"]
 [ext_resource type="PackedScene" uid="uid://b27xwk8o88mlk" path="res://Player/weapons/weaponTypes/Shotgun/shot_gun.tscn" id="8_mal8s"]
 
 [resource]
 script = ExtResource("1_32ny1")
 weapons = Array[PackedScene]([ExtResource("3_kugdn"), ExtResource("4_e36g2"), ExtResource("8_mal8s")])
-projectiles = Array[ExtResource("1_7k4ex")]([ExtResource("2_kugdn"), ExtResource("3_yphgj"), ExtResource("4_q2mas")])
+projectile_array = Array[ExtResource("1_7k4ex")]([])
 metadata/_custom_type_script = "uid://c4hvgj3pwjg3o"
