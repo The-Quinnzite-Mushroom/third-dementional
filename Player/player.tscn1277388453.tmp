@@ -30,6 +30,5 @@ offset_left = -10.0
 offset_top = -20.0
 offset_right = 30.0
 offset_bottom = 20.0
-value = 10.0
 texture_under = ExtResource("3_gwnis")
-texture_progress = ExtResource("4_k53q1")
+texture_over = ExtResource("4_k53q1")

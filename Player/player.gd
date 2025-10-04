@@ -5,8 +5,12 @@ const speed = 200.0
 const jump_velocity = -300.0
 const GRAVITY = 400
 
+var health = 100
+func _ready() -> void:
+	update_health()
+
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# Add the gravity
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	#else:
@@ -27,7 +31,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 
-
+func take_damage(dmg):
+	health -= dmg
+	update_health()
+	if health <= 0:
+		get_tree().change_scene_to_file("res://scenes/menus/death_menu.tscn")
+		
+func update_health():
+	$HealthBar.value = health
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print("Player area entered by: ",area)
