@@ -1,11 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://80o8xjbguqvp"]
+[gd_scene load_steps=8 format=3 uid="uid://80o8xjbguqvp"]
 
 [ext_resource type="Script" uid="uid://rtpi8xeipisn" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Script" uid="uid://vdl1hwhcq6xq" path="res://Player/weapon_slot.gd" id="2_4ntmi"]
 [ext_resource type="Texture2D" uid="uid://cncl5t01n8xim" path="res://asset-sources/player_health_bg.png" id="3_gwnis"]
 [ext_resource type="Texture2D" uid="uid://bgv6rgqu6k3af" path="res://asset-sources/player_health.png" id="4_k53q1"]
+[ext_resource type="Script" uid="uid://dm7jaejppyfv3" path="res://Player/player_area.gd" id="5_k53q1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8h54"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwnis"]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
@@ -33,3 +36,11 @@ offset_bottom = 20.0
 value = 10.0
 texture_under = ExtResource("3_gwnis")
 texture_progress = ExtResource("4_k53q1")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("5_k53q1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_gwnis")
+
+[connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]

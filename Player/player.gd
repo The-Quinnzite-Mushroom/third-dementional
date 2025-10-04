@@ -31,6 +31,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 
+
+
 func take_damage(dmg):
 	health -= dmg
 	update_health()
