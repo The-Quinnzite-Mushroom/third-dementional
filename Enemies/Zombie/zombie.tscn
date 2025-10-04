@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://jvg57fnf8smy"]
+
+[ext_resource type="Script" uid="uid://caubmiwj8c325" path="res://Enemies/Zombie/zombie.gd" id="1_mawmx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d2038"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mawmx"]
+radius = 14.0
+height = 34.0
+
+[node name="zombie" type="CharacterBody2D"]
+script = ExtResource("1_mawmx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_d2038")
+
+[node name="Area2D" type="Area2D" parent="." groups=["zombie_hit_box"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_mawmx")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
