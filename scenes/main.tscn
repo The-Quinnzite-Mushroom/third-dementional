@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://cjrhmn8sjuxcu"]
+[gd_scene load_steps=4 format=3 uid="uid://cjrhmn8sjuxcu"]
 
-[ext_resource type="Script" uid="uid://7uxvdd0srta5" path="res://scenes/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://7uxvdd0srta5" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://mbe6bnphijgb" path="res://scripts/player.gd" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://c07xxla0e2b8t" path="res://scripts/monster_spawner.gd" id="3_jyhfs"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_o5qli")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_sugp2")
+
+[node name="Area2D" type="Area2D" parent="Player"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Area2D"]
+
+[node name="MonsterSpawner" type="Node" parent="."]
+script = ExtResource("3_jyhfs")
