@@ -13,3 +13,6 @@ script = ExtResource("1_o5qli")
 
 [node name="MonsterSpawner" type="Node" parent="."]
 script = ExtResource("3_jyhfs")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2

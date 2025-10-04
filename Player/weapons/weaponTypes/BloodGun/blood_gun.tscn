@@ -19,5 +19,5 @@ position = Vector2(-0.292058, -19.9979)
 shape = SubResource("CapsuleShape2D_w5d6u")
 
 [node name="bulletSpawning" type="Node2D" parent="."]
-position = Vector2(44, 0)
+position = Vector2(70, 0)
 script = ExtResource("1_rkf25")

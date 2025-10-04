@@ -13,5 +13,13 @@ script = ExtResource("1_l8h54")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_l8h54")
 
-[node name="weapon" type="Node2D" parent="."]
+[node name="weaponContainer" type="Node2D" parent="."]
 script = ExtResource("2_4ntmi")
+
+[node name="legsContainer" type="Node2D" parent="."]
+
+[node name="legsSprite" type="AnimatedSprite2D" parent="legsContainer"]
+
+[node name="torsoContainer" type="Node2D" parent="."]
+
+[node name="torsoSprite" type="Sprite2D" parent="torsoContainer"]
