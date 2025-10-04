@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://co5k3a2j406ta"]
+
+[ext_resource type="Script" uid="uid://clff1mtnn6ycd" path="res://Player/weapons/weaponTypes/BloodGun/blood_gun.gd" id="1_ab4xk"]
+[ext_resource type="Script" uid="uid://bgq37kd8c6dc6" path="res://Player/weapons/weaponTypes/BloodGun/blood_spawning.gd" id="1_rkf25"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w5d6u"]
+height = 52.0
+
+[node name="bloodGun" type="Node2D"]
+script = ExtResource("1_ab4xk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = 1.5854
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.292058, -19.9979)
+shape = SubResource("CapsuleShape2D_w5d6u")
+
+[node name="bulletSpawning" type="Node2D" parent="."]
+position = Vector2(70, 0)
+script = ExtResource("1_rkf25")

@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bpnvher8bl32b"]
+
+[node name="waspEnemy" type="Node2D"]
