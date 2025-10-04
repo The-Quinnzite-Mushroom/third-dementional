@@ -10,5 +10,6 @@ func my_cool_function():
 	
 	
 func _process(delta: float) -> void:
-	print("hellow world")
-	print("this is delta",delta)
+	pass
+	#print("hellow world")
+	#print("this is delta",delta)
