@@ -1,17 +1,20 @@
 extends Enemy
 
-const BASE_PROJECTILE = preload("res://Player/weapons/weaponTypes/BaseWeapon/base_projectile.tres")
+const WASP_PROJECTILE = preload("res://Enemies/Wasp/wasp_projectile.tres")
+
 const PROJECTILE = preload("res://Player/weapons/projectile.tscn")
 var hover_height = 5.0
 
+var players
 func _ready() -> void:
-	pass
+	players = get_tree().get_nodes_in_group("player")
+	player_position = players[0].global_position
 	
 
 @export var hover_radius: float = 150.0
 @export var speed: float = 150.0
 @export var orbit_speed: float = 2.0  # radians per second
-@export var jitter_magnitude: float = 30.0  # max random offset
+@export var jitter_magnitude: float = 50.0  # max random offset
 @export var min_height: float = -100.0
 @export var shoot_interval: float = 2.0  # seconds between shots
 
@@ -37,14 +40,14 @@ func _process(delta):
 
 	# Update angle for orbiting
 	angle += orbit_speed * delta
-
+	player_position = players[0].global_position
 	# Desired position around player
 	var target_pos = player_position + Vector2(hover_radius, 0).rotated(angle) + offset
 	target_pos.y = min(target_pos.y, min_height)
 	# Move towards target smoothly
 	var dir = (target_pos - global_position).normalized()
 	global_position += dir * speed * delta
-
+	min_height = player_position.y - 100
 	# Optional: occasionally change jitter to avoid perfect orbit
 	if randi() % 60 == 0:  # roughly every second
 		offset = Vector2(randf_range(-jitter_magnitude, jitter_magnitude),
@@ -58,8 +61,9 @@ func _process(delta):
 		
 func shoot(direction):
 	print("should shoot")
+	direction = (player_position - global_position).normalized()
 	var new_bullet: Projectile = PROJECTILE.instantiate()
 	get_tree().current_scene.add_child(new_bullet)
 	new_bullet.global_position = global_position
-	new_bullet.set_weapon_data(direction, BASE_PROJECTILE)
+	new_bullet.set_weapon_data(direction, WASP_PROJECTILE)
 	#print(base_weapon.weapon_projectile)
