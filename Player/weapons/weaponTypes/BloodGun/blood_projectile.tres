@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ProjectileData" load_steps=2 format=3 uid="uid://dvm84wh0urh5p"]
+
+[ext_resource type="Script" uid="uid://6ifbrn8a245m" path="res://Player/weapons/projectile_data.gd" id="1_kdiqf"]
+
+[resource]
+script = ExtResource("1_kdiqf")
+name = "blood"
+speed = 50.0
+damage = 20.0
+despawn_time = 0.1
+size = 50.0
+metadata/_custom_type_script = "uid://6ifbrn8a245m"

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b27xwk8o88mlk"]
+
+[ext_resource type="Script" uid="uid://f11ke0c7jot" path="res://Player/weapons/weaponTypes/Shotgun/shotgun_bullet_spawner.gd" id="1_1lfx1"]
+[ext_resource type="Script" uid="uid://bbhuhlfcshofg" path="res://Player/weapons/weaponTypes/Shotgun/shot_gun.gd" id="1_57a58"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7hqtd"]
+radius = 5.00008
+
+[node name="shotGun" type="Node2D"]
+script = ExtResource("1_57a58")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(11, 0)
+rotation = 1.57072
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_7hqtd")
+
+[node name="bulletSpawning" type="Node2D" parent="."]
+position = Vector2(25, 0)
+script = ExtResource("1_1lfx1")

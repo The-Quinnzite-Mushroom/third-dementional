@@ -1,6 +1,10 @@
 extends Node2D
+class_name bulletSpawner
+
+@onready var base_weapon: Node2D = $".."
 
 const PROJECTILE = preload("res://Player/weapons/projectile.tscn")
+const weapons_data = preload("res://Player/weapons/weapons_data.tres")
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -19,4 +23,5 @@ func spawn_projectile(direction):
 	var new_bullet: Projectile = PROJECTILE.instantiate()
 	get_tree().current_scene.add_child(new_bullet)
 	new_bullet.global_position = global_position
-	new_bullet.set_weapon_data(direction, 10.0)
+	new_bullet.set_weapon_data(direction, base_weapon.weapon_projectile)
+	print(base_weapon.weapon_projectile)

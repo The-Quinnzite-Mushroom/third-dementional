@@ -3,21 +3,22 @@ class_name Projectile
 
 @onready var despawn_timer: Timer = $despawnTimer
 
+@onready var collision_shape_2d: CollisionShape2D = $Area2D/CollisionShape2D
 
-var speed: float = 500.0
+var projectile_data: ProjectileData 
 var direction: Vector2
 
-func set_weapon_data(direction: Vector2, despawn_time: float = 1.0, bullet_speed: float = 500.0):
-	despawn_timer.wait_time = despawn_time
+func set_weapon_data(bullet_direction: Vector2, projectile_data: ProjectileData):
+	self.projectile_data = projectile_data
+	despawn_timer.wait_time = projectile_data.despawn_time
 	despawn_timer.start()
+	collision_shape_2d.shape.radius = projectile_data.size
 	
-	speed = bullet_speed
-	self.direction = direction
+	self.direction = bullet_direction
+
 		
 func _process(delta: float) -> void:
-	print("is alive")
-	global_position += direction*delta*speed
-	print(global_position)
+	global_position += direction*delta*projectile_data.speed
 
 func _on_despawn_timer_timeout() -> void:
 	queue_free()
