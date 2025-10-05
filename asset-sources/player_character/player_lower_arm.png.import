@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t7xf864c4qm3"
-path="res://.godot/imported/temp_tileset.png-0eb3c56bcf5c8d494418067d48027743.ctex"
+uid="uid://dq14ruj338qsk"
+path="res://.godot/imported/player_lower_arm.png-49af534917a28bdf7ea4dfb56b942c92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset-sources/tileset/temp_tileset.png"
-dest_files=["res://.godot/imported/temp_tileset.png-0eb3c56bcf5c8d494418067d48027743.ctex"]
+source_file="res://asset-sources/player_character/player_lower_arm.png"
+dest_files=["res://.godot/imported/player_lower_arm.png-49af534917a28bdf7ea4dfb56b942c92.ctex"]
 
 [params]
 

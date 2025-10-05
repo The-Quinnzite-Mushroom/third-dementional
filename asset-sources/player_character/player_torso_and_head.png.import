@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t7xf864c4qm3"
-path="res://.godot/imported/temp_tileset.png-0eb3c56bcf5c8d494418067d48027743.ctex"
+uid="uid://cfrprjbep7587"
+path="res://.godot/imported/player_torso_and_head.png-26412746a4e4ed61841ef65db2e05b78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset-sources/tileset/temp_tileset.png"
-dest_files=["res://.godot/imported/temp_tileset.png-0eb3c56bcf5c8d494418067d48027743.ctex"]
+source_file="res://asset-sources/player_character/player_torso_and_head.png"
+dest_files=["res://.godot/imported/player_torso_and_head.png-26412746a4e4ed61841ef65db2e05b78.ctex"]
 
 [params]
 
