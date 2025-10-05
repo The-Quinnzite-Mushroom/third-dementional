@@ -4,7 +4,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3rwya"]
 
-[node name="waspEnemy" type="Node2D"]
+[node name="waspEnemy" type="CharacterBody2D"]
 script = ExtResource("1_3rwya")
 
 [node name="Area2D" type="Area2D" parent="."]
