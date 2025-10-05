@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgk1iu1h0ajik"]
+
+[ext_resource type="Script" uid="uid://cdm4pmbscvwdj" path="res://Enemies/Grasshopper/grasshopper_enemy.gd" id="1_ch880"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch880"]
+size = Vector2(26, 12)
+
+[node name="GrasshopperEnemy" type="CharacterBody2D"]
+script = ExtResource("1_ch880")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ch880")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(20, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-20, 0)
+
+[node name="JumpTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_timer_timeout"]

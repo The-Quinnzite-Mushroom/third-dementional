@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://cjrhmn8sjuxcu"]
+[gd_scene load_steps=11 format=4 uid="uid://cjrhmn8sjuxcu"]
 
 [ext_resource type="Script" uid="uid://7uxvdd0srta5" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://80o8xjbguqvp" path="res://Player/player.tscn" id="2_sugp2"]
-[ext_resource type="Script" uid="uid://bmk8phv84tfk6" path="res://scenes/camera_2d.gd" id="2_tbgi4"]
+[ext_resource type="Script" path="res://scenes/camera_2d.gd" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://c07xxla0e2b8t" path="res://scripts/monster_spawner.gd" id="3_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://t7xf864c4qm3" path="res://asset-sources/tileset/temp_tileset.png" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bgk1iu1h0ajik" path="res://Enemies/Grasshopper/grasshopper_enemy.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bpnvher8bl32b" path="res://Enemies/Wasp/wasp_enemy.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://jvg57fnf8smy" path="res://Enemies/Zombie/zombie.tscn" id="7_o6xl0"]
 
@@ -43,3 +44,6 @@ format = 2
 
 [node name="zombie" parent="." instance=ExtResource("7_o6xl0")]
 position = Vector2(110, -59)
+
+[node name="GrasshopperEnemy" parent="." instance=ExtResource("6_o6xl0")]
+position = Vector2(69, 17)
