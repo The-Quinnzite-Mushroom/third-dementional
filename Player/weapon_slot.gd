@@ -15,22 +15,16 @@ func switch_index(index, drop = null):
 	current_weapon_index = index
 	drop_data = drop
 
-func _input(event):
-	if event.is_action_pressed("interact"):
-		#current_weapon_index = (current_weapon_index + 1) % weapons_data.weapons.size()
-		#swap_weapon()
-		if current_weapon_index >= 0:
-			swap_weapon()
+
 		
 	
 func swap_weapon(index: int = -1):
 	if current_weapon:
 		current_weapon.queue_free()
 		
-
-		
 	current_weapon = weapons_data.weapons[current_weapon_index].instantiate()
-		
+	
+	
 	if drop_data:
 		drop_data.queue_free()
 		drop_data = null
