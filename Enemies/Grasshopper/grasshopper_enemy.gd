@@ -1,7 +1,8 @@
 extends Enemy 
 
-const GRAVITY = 800.0 
-const JUMP_INTERVAL = 1
+@export var GRAVITY: float = 800.0 
+@export var JUMP_INTERVAL: float = 1
+@export var damage: int = 30
 var direction = 1 
 
 @onready var ray_cast_right: RayCast2D = $RayCastRight 
