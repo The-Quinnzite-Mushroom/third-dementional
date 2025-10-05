@@ -11,7 +11,7 @@ script = ExtResource("1_ch880")
 [node name="CollisionBox" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ch880")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["grasshopper_hit_box"]]
 
 [node name="Hitbox" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_ch880")

@@ -72,11 +72,10 @@ color = Color(0, 0.7904003, 0.9256936, 1)
 polygon = PackedVector2Array(8194, 1847, 8229, -1276, -2138, -1239, -2151, 1988)
 
 [node name="GrasshopperEnemy" parent="." instance=ExtResource("6_o6xl0")]
-position = Vector2(-115, -40)
+position = Vector2(360, 151)
 
 [node name="GrasshopperEnemy2" parent="." instance=ExtResource("6_o6xl0")]
-position = Vector2(-252, -119)
+position = Vector2(102, 23)
 
 [node name="GrasshopperEnemy3" parent="." instance=ExtResource("6_o6xl0")]
-position = Vector2(177, -8)
-
+position = Vector2(400, -74)
