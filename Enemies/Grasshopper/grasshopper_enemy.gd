@@ -1,7 +1,7 @@
 extends Enemy 
 
 const GRAVITY = 800.0 
-const JUMP_INTERVAL = 1.5 
+const JUMP_INTERVAL = 1
 var direction = 1 
 
 @onready var ray_cast_right: RayCast2D = $RayCastRight 
@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 	
 func jump() -> void: 
 	if (is_on_floor()):
-		velocity.x = direction * randf_range(60.0, 100.0) 
+		velocity.x = direction * randf_range(100.0, 130.0) 
 		velocity.y = -randf_range(300.0, 400.0) 
 		move_and_slide() 
 	

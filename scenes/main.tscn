@@ -46,4 +46,10 @@ format = 2
 position = Vector2(110, -59)
 
 [node name="GrasshopperEnemy" parent="." instance=ExtResource("6_o6xl0")]
-position = Vector2(69, 17)
+position = Vector2(-115, -40)
+
+[node name="GrasshopperEnemy2" parent="." instance=ExtResource("6_o6xl0")]
+position = Vector2(-252, -119)
+
+[node name="GrasshopperEnemy3" parent="." instance=ExtResource("6_o6xl0")]
+position = Vector2(177, -8)
