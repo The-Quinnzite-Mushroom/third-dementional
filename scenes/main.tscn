@@ -86,4 +86,3 @@ position = Vector2(102, 23)
 position = Vector2(177, -8)
 
 [connection signal="timeout" from="MonsterSpawner/Timer" to="MonsterSpawner" method="_on_timer_timeout"]
-
