@@ -5,7 +5,8 @@ const speed = 200.0
 const jump_velocity = -300.0
 const GRAVITY = 400
 
-var health = 100
+var health = 500
+
 func _ready() -> void:
 	update_health()
 
@@ -31,7 +32,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 
-
+func change_legs_index(index, drop):
+	pass
+	
+func change_torso_index(index, drop):
+	pass
 
 func take_damage(dmg):
 	health -= dmg

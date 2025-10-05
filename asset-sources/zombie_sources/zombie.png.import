@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cy4o5wgv0pfmn"
-path="res://.godot/imported/player_upper_arm.png-430d511e8375733c08538db12638ec6b.ctex"
+uid="uid://cuehtreoi5ed7"
+path="res://.godot/imported/zombie.png-7633c02bae7430ba54e3ad09f0965ec1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset-sources/player_character/player_upper_arm.png"
-dest_files=["res://.godot/imported/player_upper_arm.png-430d511e8375733c08538db12638ec6b.ctex"]
+source_file="res://asset-sources/zombie_sources/zombie.png"
+dest_files=["res://.godot/imported/zombie.png-7633c02bae7430ba54e3ad09f0965ec1.ctex"]
 
 [params]
 

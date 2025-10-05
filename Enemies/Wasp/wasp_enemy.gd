@@ -1,9 +1,10 @@
 extends Enemy
 
 const WASP_PROJECTILE = preload("res://Enemies/Wasp/wasp_projectile.tres")
-
 const PROJECTILE = preload("res://Player/weapons/projectile.tscn")
 var hover_height = 5.0
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 var players
 func _ready() -> void:
@@ -53,11 +54,17 @@ func _process(delta):
 		offset = Vector2(randf_range(-jitter_magnitude, jitter_magnitude),
 			randf_range(-jitter_magnitude, jitter_magnitude))
 						
-
+						
 	shoot_timer -= delta
 	if shoot_timer <= 0.0:
 		shoot(Vector2(1, 0))
 		shoot_timer = shoot_interval  # reset timer
+	
+	if dir.x < 0 and !animated_sprite_2d.flip_h:
+		animated_sprite_2d.flip_h = true
+	elif dir.x > 0 and animated_sprite_2d.flip_h:
+		animated_sprite_2d.flip_h = false
+		
 		
 func shoot(direction):
 	print("should shoot")
@@ -67,3 +74,10 @@ func shoot(direction):
 	new_bullet.global_position = global_position
 	new_bullet.set_weapon_data(direction, WASP_PROJECTILE)
 	#print(base_weapon.weapon_projectile)
+const WASP_WEAPON_DROP = preload("res://Enemies/Wasp/wasp_weapon_drop.tres")
+func drop_equipable():
+	var enemy_drop = ENEMY_DROP.instantiate()
+	enemy_drop.initialize(WASP_WEAPON_DROP)
+
+	get_tree().current_scene.add_child(enemy_drop)
+	enemy_drop.global_position = global_position
