@@ -1,12 +1,66 @@
-[gd_scene load_steps=8 format=3 uid="uid://80o8xjbguqvp"]
+[gd_scene load_steps=16 format=3 uid="uid://80o8xjbguqvp"]
 
 [ext_resource type="Script" uid="uid://rtpi8xeipisn" path="res://Player/player.gd" id="1_4ntmi"]
 [ext_resource type="Script" uid="uid://vdl1hwhcq6xq" path="res://Player/weapon_slot.gd" id="2_4ntmi"]
+[ext_resource type="Texture2D" uid="uid://bkohoqn6peext" path="res://asset-sources/player_character/player_legs.png" id="3_fhl08"]
 [ext_resource type="Texture2D" uid="uid://cncl5t01n8xim" path="res://asset-sources/player_health_bg.png" id="3_gwnis"]
+[ext_resource type="Texture2D" uid="uid://cy4o5wgv0pfmn" path="res://asset-sources/player_character/player_upper_arm.png" id="3_od3ui"]
+[ext_resource type="Texture2D" uid="uid://dq14ruj338qsk" path="res://asset-sources/player_character/player_lower_arm.png" id="4_00tjw"]
 [ext_resource type="Texture2D" uid="uid://bgv6rgqu6k3af" path="res://asset-sources/player_health.png" id="4_k53q1"]
 [ext_resource type="Script" uid="uid://dm7jaejppyfv3" path="res://Player/player_area.gd" id="5_k53q1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8h54"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtle1"]
+atlas = ExtResource("3_fhl08")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_od3ui"]
+atlas = ExtResource("3_fhl08")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00tjw"]
+atlas = ExtResource("3_fhl08")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3vf3"]
+atlas = ExtResource("3_fhl08")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_apopc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtle1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_od3ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00tjw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3vf3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"grass_hopper",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"wasp",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"zombie",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gwnis"]
 
@@ -15,18 +69,34 @@ z_index = 1
 script = ExtResource("1_4ntmi")
 
 [node name="weaponContainer" type="Node2D" parent="."]
+position = Vector2(0, -7)
 script = ExtResource("2_4ntmi")
+
+[node name="UpperArm" type="Sprite2D" parent="weaponContainer"]
+position = Vector2(5, 6)
+texture = ExtResource("3_od3ui")
+
+[node name="LowerArm" type="Sprite2D" parent="weaponContainer"]
+position = Vector2(8, 1)
+rotation = -1.67428
+texture = ExtResource("4_00tjw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_l8h54")
 
 [node name="legsContainer" type="Node2D" parent="."]
+position = Vector2(0, 5)
 
 [node name="legsSprite" type="AnimatedSprite2D" parent="legsContainer"]
+sprite_frames = SubResource("SpriteFrames_apopc")
+animation = &"zombie"
+autoplay = "default"
 
 [node name="torsoContainer" type="Node2D" parent="."]
 
-[node name="torsoSprite" type="Sprite2D" parent="torsoContainer"]
+[node name="torsoSprite" type="AnimatedSprite2D" parent="torsoContainer"]
+autoplay = "default"
+offset = Vector2(50, 0)
 
 [node name="HealthBar" type="TextureProgressBar" parent="."]
 offset_left = -10.0
@@ -44,3 +114,4 @@ script = ExtResource("5_k53q1")
 shape = SubResource("CapsuleShape2D_gwnis")
 
 [connection signal="area_entered" from="Area2D" to="Area2D" method="_on_area_entered"]
+[connection signal="area_exited" from="Area2D" to="Area2D" method="_on_area_exited"]

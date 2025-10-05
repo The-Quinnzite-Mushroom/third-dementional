@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://6r5mtwykr6sm"]
+
+[ext_resource type="Script" uid="uid://djc7374tlpdh7" path="res://Enemies/enemy_drop.gd" id="1_l3jtx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pkd24"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l3jtx"]
+
+[node name="enemyDrop" type="Node2D"]
+script = ExtResource("1_l3jtx")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_pkd24")
+
+[node name="Area2D" type="Area2D" parent="." groups=["equipable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_l3jtx")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
