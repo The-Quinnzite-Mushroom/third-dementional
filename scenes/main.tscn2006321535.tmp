@@ -9,9 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://bpnvher8bl32b" path="res://Enemies/Wasp/wasp_enemy.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://jvg57fnf8smy" path="res://Enemies/Zombie/zombie.tscn" id="7_o6xl0"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
 texture = ExtResource("4_jyhfs")
 7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.6763268, 1.4388714, 4.4964676, 1.0791531, 8, 8, -8, 8)
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
@@ -25,6 +26,7 @@ texture = ExtResource("4_jyhfs")
 6:1/0 = 0
 6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:1/0 = 0
 9:1/0 = 0
 6:2/0 = 0
@@ -32,8 +34,8 @@ texture = ExtResource("4_jyhfs")
 6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_o6xl0"]
-physics_layer_0/collision_layer = 3
-sources/2 = SubResource("TileSetAtlasSource_tipki")
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_o6xl0")
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_o5qli")
@@ -51,6 +53,7 @@ grasshoper_enemy = ExtResource("6_o6xl0")
 player = NodePath("../Player")
 
 [node name="Timer" type="Timer" parent="MonsterSpawner"]
+wait_time = 5.0
 autostart = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -73,17 +76,16 @@ layer = 0
 [node name="TempBG" type="Polygon2D" parent="."]
 z_index = -1
 position = Vector2(363, 157)
-color = Color(0, 0.7904, 0.925694, 1)
+color = Color(0, 0.7904003, 0.9256936, 1)
 polygon = PackedVector2Array(8194, 1847, 8229, -1276, -2138, -1239, -2151, 1988)
 
 [node name="GrasshopperEnemy" parent="." instance=ExtResource("6_o6xl0")]
-position = Vector2(360, 151)
+position = Vector2(-115, -40)
 
 [node name="GrasshopperEnemy2" parent="." instance=ExtResource("6_o6xl0")]
-position = Vector2(102, 23)
+position = Vector2(-252, -119)
 
 [node name="GrasshopperEnemy3" parent="." instance=ExtResource("6_o6xl0")]
 position = Vector2(177, -8)
 
 [connection signal="timeout" from="MonsterSpawner/Timer" to="MonsterSpawner" method="_on_timer_timeout"]
-
