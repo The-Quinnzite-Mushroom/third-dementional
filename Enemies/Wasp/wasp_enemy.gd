@@ -67,17 +67,26 @@ func _process(delta):
 		
 		
 func shoot(direction):
-	print("should shoot")
 	direction = (player_position - global_position).normalized()
 	var new_bullet: Projectile = PROJECTILE.instantiate()
 	get_tree().current_scene.add_child(new_bullet)
 	new_bullet.global_position = global_position
 	new_bullet.set_weapon_data(direction, WASP_PROJECTILE)
 	#print(base_weapon.weapon_projectile)
+	
 const WASP_WEAPON_DROP = preload("res://Enemies/Wasp/wasp_weapon_drop.tres")
-func drop_equipable():
-	var enemy_drop = ENEMY_DROP.instantiate()
-	enemy_drop.initialize(WASP_WEAPON_DROP)
+const WASP_TORSO = preload("res://Enemies/Wasp/wasp_torso.tres")
+const WASP_LEGS = preload("res://Enemies/Wasp/wasp_legs.tres")
 
-	get_tree().current_scene.add_child(enemy_drop)
-	enemy_drop.global_position = global_position
+func drop_equipable():
+	randomize()
+	var drop_percent = randf()
+	
+	
+
+	print("drop percent: " + str(drop_percent))
+	if drop_percent < .33:
+		var enemy_drop = ENEMY_DROP.instantiate()
+		enemy_drop.initialize(WASP_WEAPON_DROP)
+		get_tree().current_scene.add_child(enemy_drop)
+		enemy_drop.global_position = global_position

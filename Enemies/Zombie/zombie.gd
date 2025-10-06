@@ -1,11 +1,12 @@
-extends CharacterBody2D
+extends Enemy
+
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var speed: float = 120
 @export var jump_force: float = 400
 @export var min_distance: float = 100
 @export var gravity: float = 800
 @export var damage = 20.0
-@export var health = 50
 
 # Reference to the player
 var player: Node2D
@@ -42,6 +43,10 @@ func _physics_process(delta):
 		if distance > min_distance and direction.y < -10:  # player is higher
 			velocity.y = -jump_force
 
+	if direction.x < 0 and !animated_sprite_2d.flip_h:
+		animated_sprite_2d.flip_h = true
+	elif direction.x > 0 and animated_sprite_2d.flip_h:
+		animated_sprite_2d.flip_h = false
 	# Move the enemy
 	velocity.x = move_vector.x
 	move_and_slide()
@@ -51,14 +56,24 @@ func _physics_process(delta):
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("projectile") and area.get_parent().is_player_projectile:
-		print("player projectile hit enemy")
+		
 		take_damage(area.get_parent().bullet_collision_info())
 
-func take_damage(damage: float):
-	health -= damage
-	if health <= 0:
-		kill_enemy()
 		
-		
-func kill_enemy():
-	queue_free()
+const ZOMBIE_LEGS = preload("res://Enemies/Zombie/zombie_legs.tres")
+const ZOMBIE_TORSO = preload("res://Enemies/Zombie/zombie_torso.tres")
+const ZOMBIE_WEAPON = preload("res://Enemies/Zombie/zombie_weapon.tres")
+
+func drop_equipable():
+	randomize()
+	var drop_percent = randf()
+	
+	
+	
+	print("drop percent: " + str(drop_percent))
+	if drop_percent < .33:
+		var enemy_drop = ENEMY_DROP.instantiate()
+		enemy_drop.initialize(ZOMBIE_WEAPON)
+
+		get_tree().current_scene.add_child(enemy_drop)
+		enemy_drop.global_position = global_position

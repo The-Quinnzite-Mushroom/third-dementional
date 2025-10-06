@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://co5k3a2j406ta"]
+[gd_scene load_steps=5 format=3 uid="uid://co5k3a2j406ta"]
 
 [ext_resource type="Script" uid="uid://clff1mtnn6ycd" path="res://Player/weapons/weaponTypes/BloodGun/blood_gun.gd" id="1_ab4xk"]
 [ext_resource type="Script" uid="uid://bgq37kd8c6dc6" path="res://Player/weapons/weaponTypes/BloodGun/blood_spawning.gd" id="1_rkf25"]
+[ext_resource type="AudioStream" uid="uid://cseexhbun8jjf" path="res://asset-sources/SFX/flamethrower.wav" id="3_qwlsf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w5d6u"]
 height = 52.0
@@ -21,3 +22,20 @@ shape = SubResource("CapsuleShape2D_w5d6u")
 [node name="bulletSpawning" type="Node2D" parent="."]
 position = Vector2(70, 0)
 script = ExtResource("1_rkf25")
+
+[node name="shoot_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_qwlsf")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(46, 0)
+amount = 40
+lifetime = 0.23
+randomness = 0.18
+emission_shape = 1
+emission_sphere_radius = 0.01
+spread = 180.0
+gravity = Vector2(4, 4)
+initial_velocity_min = 4.35
+initial_velocity_max = 125.21
+scale_amount_max = 2.0
+color = Color(1, 0.133333, 0.192157, 1)

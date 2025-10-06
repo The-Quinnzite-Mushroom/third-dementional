@@ -14,13 +14,15 @@ func _on_area_entered(area: Area2D) -> void:
 		print("player hit by grasshopper")
 		player.take_damage(area.get_parent().damage)
 	if area.is_in_group("equipable"):
+		
+		print(area.get_parent().get_equipable_data().type)
 		if area.get_parent().get_equipable_data().type == "weapon":
-			print(area.get_parent().get_equipable_data().type)
+			
 			weapon_container.switch_index(area.get_parent().get_equipable_data().index,  area.get_parent())
 		elif area.get_parent().get_equipable_data().type == "legs":
-			player.change_legs_index(area.get_parent())
+			player.change_legs_index(area.get_parent().get_equipable_data().index, area.get_parent())
 		elif area.get_parent().get_equipable_data().type == "torso":
-			player.change_torso_index(area.get_parent())
+			player.change_torso_index(area.get_parent().get_equipable_data().index, area.get_parent())
 			
 		#print("hovering over equipable")
 
@@ -31,4 +33,8 @@ func _on_area_exited(area: Area2D) -> void:
 		if area.get_parent().get_equipable_data().type == "weapon":
 			if area.get_parent().get_equipable_data().index == weapon_container.current_weapon_index:
 				weapon_container.switch_index(-1)
+			elif area.get_parent().get_equipable_data().type == "legs":
+				player.change_legs_index(-1)
+			elif area.get_parent().get_equipable_data().type == "torso":
+				player.change_torso_index(-1)
 			

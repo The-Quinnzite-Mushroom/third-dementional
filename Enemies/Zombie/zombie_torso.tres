@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EquipableData" load_steps=2 format=3 uid="uid://u5wdh2l823vg"]
+
+[ext_resource type="Script" uid="uid://cvtpr1jqdvy1f" path="res://Player/Equipables/equipable_data.gd" id="1_k513d"]
+
+[resource]
+script = ExtResource("1_k513d")
+type = "torso"
+index = 1
+metadata/_custom_type_script = "uid://cvtpr1jqdvy1f"

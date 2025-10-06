@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cjrhmn8sjuxcu"]
+[gd_scene load_steps=14 format=4 uid="uid://cjrhmn8sjuxcu"]
 
 [ext_resource type="Script" uid="uid://7uxvdd0srta5" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://80o8xjbguqvp" path="res://Player/player.tscn" id="2_sugp2"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bgk1iu1h0ajik" path="res://Enemies/Grasshopper/grasshopper_enemy.tscn" id="6_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://bpnvher8bl32b" path="res://Enemies/Wasp/wasp_enemy.tscn" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://jvg57fnf8smy" path="res://Enemies/Zombie/zombie.tscn" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://yj5fetuuyg3j" path="res://scenes/win_area.gd" id="9_85g3d"]
+[ext_resource type="AudioStream" uid="uid://dv60yfyx1wy88" path="res://asset-sources/music/loop.wav" id="10_choun"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("4_jyhfs")
@@ -35,6 +37,9 @@ texture = ExtResource("4_jyhfs")
 physics_layer_0/collision_layer = 3
 sources/2 = SubResource("TileSetAtlasSource_tipki")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
+size = Vector2(277, 175)
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_o5qli")
 
@@ -58,6 +63,7 @@ tile_map_data = PackedByteArray("AAACAAMAAgABAAEAAAADAAMAAgABAAEAAAAEAAMAAgABAAE
 tile_set = SubResource("TileSet_o6xl0")
 
 [node name="Player" parent="." instance=ExtResource("2_sugp2")]
+position = Vector2(-13, -111)
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
@@ -85,4 +91,20 @@ position = Vector2(102, 23)
 [node name="GrasshopperEnemy3" parent="." instance=ExtResource("6_o6xl0")]
 position = Vector2(177, -8)
 
+[node name="winArea" type="Node2D" parent="."]
+position = Vector2(5536, -29)
+
+[node name="Area2D" type="Area2D" parent="winArea"]
+script = ExtResource("9_85g3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="winArea/Area2D"]
+position = Vector2(13.5, -37.5)
+shape = SubResource("RectangleShape2D_tipki")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_choun")
+autoplay = true
+bus = &"Music"
+
 [connection signal="timeout" from="MonsterSpawner/Timer" to="MonsterSpawner" method="_on_timer_timeout"]
+[connection signal="area_entered" from="winArea/Area2D" to="winArea/Area2D" method="_on_area_entered"]

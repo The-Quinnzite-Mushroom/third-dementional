@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8l4x0wlwjoo4"]
+[gd_scene load_steps=5 format=3 uid="uid://b8l4x0wlwjoo4"]
 
 [ext_resource type="Script" uid="uid://b6grpvcckycyo" path="res://Player/weapons/bullet_spawning.gd" id="1_l5out"]
 [ext_resource type="Script" uid="uid://cind1jolxv12e" path="res://Player/weapons/weaponTypes/BaseWeapon/base_weapon.gd" id="1_n06na"]
+[ext_resource type="AudioStream" uid="uid://4uhw7cpyxwqk" path="res://asset-sources/SFX/blood gun.wav" id="3_mbt40"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5luyk"]
-size = Vector2(52, 9)
+size = Vector2(26, 6)
 
 [node name="baseWeapon" type="Node2D"]
 script = ExtResource("1_n06na")
@@ -14,9 +15,12 @@ script = ExtResource("1_n06na")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(16, 0.5)
+position = Vector2(13, 0)
 shape = SubResource("RectangleShape2D_5luyk")
 
 [node name="bulletSpawning" type="Node2D" parent="."]
-position = Vector2(42, 0)
+position = Vector2(26, 0)
 script = ExtResource("1_l5out")
+
+[node name="shoot_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mbt40")

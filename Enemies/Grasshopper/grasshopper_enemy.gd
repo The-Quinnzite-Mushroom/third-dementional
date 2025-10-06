@@ -37,3 +37,19 @@ func jump() -> void:
 	
 func _on_timer_timeout() -> void: 
 	jump()
+
+const HOPPER_LEGS = preload("res://Enemies/Grasshopper/hopper_legs.tres")
+const HOPPER_TORSO = preload("res://Enemies/Grasshopper/hopper_torso.tres")
+const HOPPER_WEAPON = preload("res://Enemies/Grasshopper/hopper_weapon.tres")
+
+func drop_equipable():
+	randomize()
+	var drop_percent = randf()
+	
+	print("drop percent: " + str(drop_percent))
+	if drop_percent < .33:
+		var enemy_drop = ENEMY_DROP.instantiate()
+		enemy_drop.initialize(HOPPER_WEAPON)
+
+		get_tree().current_scene.add_child(enemy_drop)
+		enemy_drop.global_position = global_position

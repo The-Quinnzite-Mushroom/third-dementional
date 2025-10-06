@@ -1,9 +1,39 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgk1iu1h0ajik"]
+[gd_scene load_steps=8 format=3 uid="uid://bgk1iu1h0ajik"]
 
 [ext_resource type="Script" uid="uid://cdm4pmbscvwdj" path="res://Enemies/Grasshopper/grasshopper_enemy.gd" id="1_ch880"]
+[ext_resource type="Texture2D" uid="uid://dd4hmmgf3pnlu" path="res://asset-sources/grasshopper/grasshopper.png" id="2_vwonu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ch880"]
 size = Vector2(26, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axpw5"]
+atlas = ExtResource("2_vwonu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abf3l"]
+atlas = ExtResource("2_vwonu")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52esu"]
+atlas = ExtResource("2_vwonu")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uyjgv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axpw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abf3l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52esu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="GrasshopperEnemy" type="CharacterBody2D"]
 script = ExtResource("1_ch880")
@@ -17,6 +47,10 @@ shape = SubResource("RectangleShape2D_ch880")
 shape = SubResource("RectangleShape2D_ch880")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -9)
+sprite_frames = SubResource("SpriteFrames_uyjgv")
+autoplay = "default"
+frame_progress = 0.580593
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(20, 0)

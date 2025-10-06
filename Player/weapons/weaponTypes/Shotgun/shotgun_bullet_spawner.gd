@@ -2,9 +2,11 @@ extends bulletSpawner
 
 @onready var shot_gun: Node2D = $".."
 
+
+
 func spawn_projectile(direction: Vector2):
 	print("should spawn shotgun bullets")	
-	
+
 	for i in range(-2, 2):
 		var shotgun_projectile_direction = direction.rotated(deg_to_rad(float(i)*20.0))
 		var new_bullet: Projectile = PROJECTILE.instantiate()

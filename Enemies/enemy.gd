@@ -3,6 +3,7 @@ class_name Enemy
 
 var health = 40.0
 const ENEMY_DROP = preload("res://Enemies/enemy_drop.tscn")
+var is_dying = false
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("projectile") and area.get_parent().is_player_projectile:
@@ -11,8 +12,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func take_damage(damage: float):
 	health -= damage
-	if health <= 0:
-		print("death")
+	if health <= 0 and !is_dying:
+		is_dying = true
 		kill_enemy()
 		
 		

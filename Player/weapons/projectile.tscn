@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmlu4k7yg7uee"]
+[gd_scene load_steps=4 format=3 uid="uid://dmlu4k7yg7uee"]
 
 [ext_resource type="Script" uid="uid://m12w5e4wlag1" path="res://Player/weapons/projectile.gd" id="1_3jwpu"]
+[ext_resource type="Texture2D" uid="uid://dnoly1gc6dj3s" path="res://asset-sources/bullet.png" id="2_tf6sf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jge1e"]
+resource_local_to_scene = true
 
 [node name="Projectile" type="Node2D"]
 script = ExtResource("1_3jwpu")
@@ -14,5 +16,8 @@ shape = SubResource("CircleShape2D_jge1e")
 
 [node name="despawnTimer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tf6sf")
 
 [connection signal="timeout" from="despawnTimer" to="." method="_on_despawn_timer_timeout"]

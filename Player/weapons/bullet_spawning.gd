@@ -3,6 +3,8 @@ class_name bulletSpawner
 
 @onready var base_weapon: Node2D = $".."
 
+@onready var shoot_sound: AudioStreamPlayer2D = $"../shoot_sound"
+
 const PROJECTILE = preload("res://Player/weapons/projectile.tscn")
 const weapons_data = preload("res://Player/weapons/weapons_data.tres")
 
@@ -13,13 +15,14 @@ func _input(event):
 		#swap_weapon()
 
 func shoot():
-
+	shoot_sound.play()
 	var mouse_pos = get_global_mouse_position()
 	var weapon_direction = (mouse_pos - global_position).normalized()
 	spawn_projectile(weapon_direction)
 	
 func spawn_projectile(direction):
 	print("should shoot")
+	
 	var new_bullet: Projectile = PROJECTILE.instantiate()
 	get_tree().current_scene.add_child(new_bullet)
 	new_bullet.global_position = global_position

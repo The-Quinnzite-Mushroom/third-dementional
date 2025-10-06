@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EquipableData" load_steps=2 format=3 uid="uid://dvf2vi6r3d14o"]
+
+[ext_resource type="Script" uid="uid://cvtpr1jqdvy1f" path="res://Player/Equipables/equipable_data.gd" id="1_5qhn1"]
+
+[resource]
+script = ExtResource("1_5qhn1")
+type = "weapon"
+index = 0
+metadata/_custom_type_script = "uid://cvtpr1jqdvy1f"

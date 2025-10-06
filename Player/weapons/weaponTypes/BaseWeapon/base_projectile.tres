@@ -8,4 +8,6 @@ name = "base"
 speed = 500.0
 damage = 20.0
 despawn_time = 10.0
+size = 3.0
+is_player_projectile = true
 metadata/_custom_type_script = "uid://6ifbrn8a245m"

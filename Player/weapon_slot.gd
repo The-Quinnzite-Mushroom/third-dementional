@@ -14,10 +14,7 @@ func _ready() -> void:
 func switch_index(index, drop = null):
 	current_weapon_index = index
 	drop_data = drop
-
-
 		
-	
 func swap_weapon(index: int = -1):
 	if current_weapon:
 		current_weapon.queue_free()
