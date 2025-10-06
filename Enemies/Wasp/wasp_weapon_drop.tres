@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="EquipableData" load_steps=2 format=3 uid="uid://je6dp1smxley"]
+[gd_resource type="Resource" script_class="EquipableData" load_steps=3 format=3 uid="uid://je6dp1smxley"]
 
 [ext_resource type="Script" uid="uid://cvtpr1jqdvy1f" path="res://Player/Equipables/equipable_data.gd" id="1_vbpc2"]
+[ext_resource type="Texture2D" uid="uid://ch85gmqj0ncih" path="res://asset-sources/player_character/weapons/wasp_shotgun.png" id="2_kwvqc"]
 
 [resource]
 script = ExtResource("1_vbpc2")
 type = "weapon"
+sprite = ExtResource("2_kwvqc")
 index = 2
 metadata/_custom_type_script = "uid://cvtpr1jqdvy1f"

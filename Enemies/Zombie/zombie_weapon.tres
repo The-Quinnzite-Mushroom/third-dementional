@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="EquipableData" load_steps=2 format=3 uid="uid://dc1gok6nbnwnh"]
+[gd_resource type="Resource" script_class="EquipableData" load_steps=3 format=3 uid="uid://dc1gok6nbnwnh"]
 
 [ext_resource type="Script" uid="uid://cvtpr1jqdvy1f" path="res://Player/Equipables/equipable_data.gd" id="1_mj30n"]
+[ext_resource type="Texture2D" uid="uid://c6phw2l1jtir4" path="res://asset-sources/player_character/weapons/zombie_rot_gun.png" id="2_63bah"]
 
 [resource]
 script = ExtResource("1_mj30n")
 type = "weapon"
+sprite = ExtResource("2_63bah")
 index = 1
 metadata/_custom_type_script = "uid://cvtpr1jqdvy1f"

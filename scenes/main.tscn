@@ -68,8 +68,6 @@ position = Vector2(-13, -111)
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
 
-[node name="waspEnemy" parent="." instance=ExtResource("6_tefeu")]
-
 [node name="zombie" parent="." instance=ExtResource("7_o6xl0")]
 position = Vector2(110, -59)
 
@@ -81,15 +79,6 @@ z_index = -1
 position = Vector2(363, 157)
 color = Color(0, 0.7904, 0.925694, 1)
 polygon = PackedVector2Array(8194, 1847, 8229, -1276, -2138, -1239, -2151, 1988)
-
-[node name="GrasshopperEnemy" parent="." instance=ExtResource("6_o6xl0")]
-position = Vector2(360, 151)
-
-[node name="GrasshopperEnemy2" parent="." instance=ExtResource("6_o6xl0")]
-position = Vector2(102, 23)
-
-[node name="GrasshopperEnemy3" parent="." instance=ExtResource("6_o6xl0")]
-position = Vector2(177, -8)
 
 [node name="winArea" type="Node2D" parent="."]
 position = Vector2(5536, -29)

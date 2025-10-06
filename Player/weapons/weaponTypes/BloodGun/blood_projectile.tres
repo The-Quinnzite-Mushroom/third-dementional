@@ -6,7 +6,7 @@
 script = ExtResource("1_kdiqf")
 name = "blood"
 speed = 50.0
-damage = 0.1
+damage = 1.0
 despawn_time = 0.1
 size = 50.0
 is_player_projectile = true

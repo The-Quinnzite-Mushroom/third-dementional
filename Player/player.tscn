@@ -165,6 +165,7 @@ position = Vector2(5, 6)
 texture = ExtResource("3_od3ui")
 
 [node name="LowerArm" type="Sprite2D" parent="weaponContainer"]
+visible = false
 position = Vector2(8, 1)
 rotation = -1.67428
 texture = ExtResource("4_00tjw")

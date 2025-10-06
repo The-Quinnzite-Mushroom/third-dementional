@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="EquipableData" load_steps=2 format=3 uid="uid://dvf2vi6r3d14o"]
+[gd_resource type="Resource" script_class="EquipableData" load_steps=3 format=3 uid="uid://dvf2vi6r3d14o"]
 
 [ext_resource type="Script" uid="uid://cvtpr1jqdvy1f" path="res://Player/Equipables/equipable_data.gd" id="1_5qhn1"]
+[ext_resource type="Texture2D" uid="uid://bv4meynkfwvom" path="res://asset-sources/player_character/weapons/grasshopper_gun.png" id="2_0xlk5"]
 
 [resource]
 script = ExtResource("1_5qhn1")
 type = "weapon"
+sprite = ExtResource("2_0xlk5")
 index = 0
 metadata/_custom_type_script = "uid://cvtpr1jqdvy1f"

@@ -1,16 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://co5k3a2j406ta"]
+[gd_scene load_steps=6 format=3 uid="uid://co5k3a2j406ta"]
 
 [ext_resource type="Script" uid="uid://clff1mtnn6ycd" path="res://Player/weapons/weaponTypes/BloodGun/blood_gun.gd" id="1_ab4xk"]
 [ext_resource type="Script" uid="uid://bgq37kd8c6dc6" path="res://Player/weapons/weaponTypes/BloodGun/blood_spawning.gd" id="1_rkf25"]
+[ext_resource type="Texture2D" uid="uid://c6phw2l1jtir4" path="res://asset-sources/player_character/weapons/zombie_rot_gun.png" id="2_xj1be"]
 [ext_resource type="AudioStream" uid="uid://cseexhbun8jjf" path="res://asset-sources/SFX/flamethrower.wav" id="3_qwlsf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w5d6u"]
 height = 52.0
 
 [node name="bloodGun" type="Node2D"]
+position = Vector2(3, 10)
 script = ExtResource("1_ab4xk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3, 0)
+texture = ExtResource("2_xj1be")
 
 [node name="Area2D" type="Area2D" parent="."]
 rotation = 1.5854
@@ -20,14 +24,14 @@ position = Vector2(-0.292058, -19.9979)
 shape = SubResource("CapsuleShape2D_w5d6u")
 
 [node name="bulletSpawning" type="Node2D" parent="."]
-position = Vector2(70, 0)
+position = Vector2(26, -1)
 script = ExtResource("1_rkf25")
 
 [node name="shoot_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_qwlsf")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(46, 0)
+position = Vector2(14, 1)
 amount = 40
 lifetime = 0.23
 randomness = 0.18

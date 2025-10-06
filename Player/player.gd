@@ -13,7 +13,7 @@ var speed = 200.0
 var jump_velocity = -300.0
 const GRAVITY = 400
 
-var health = 500
+var health = 300
 var current_legs_index: int = 0
 var current_torso_index: int = 0
 var current_weapon_index: int = 0
@@ -24,12 +24,12 @@ func _ready() -> void:
 	
 func _input(event):
 	if event.is_action_pressed("interact"):
-		#current_weapon_index = (current_weapon_index + 1) % weapons_data.weapons.size()
-		#swap_weapon()
+	
+		print(current_weapon_index)
 		if current_weapon_index >= 0:
 			weapon_container.swap_weapon(current_weapon_index)
 			equip.play()
-			current_weapon_index = -1
+			current_weapon_index
 		elif current_torso_index >= 0:
 			swap_torso()
 			equip.play()
@@ -41,9 +41,12 @@ func _input(event):
 			current_drop.queue_free()
 			current_drop = null
 			
-			
-		
 var flip_h = false
+
+func switch_weapon_index(index, drop = null):
+	current_weapon_index = index
+	if drop:
+		current_drop = drop 
 
 func swap_torso():
 	if current_torso_index == 1:

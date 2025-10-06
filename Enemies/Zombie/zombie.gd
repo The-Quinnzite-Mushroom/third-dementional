@@ -73,7 +73,8 @@ func drop_equipable():
 	print("drop percent: " + str(drop_percent))
 	if drop_percent < .33:
 		var enemy_drop = ENEMY_DROP.instantiate()
-		enemy_drop.initialize(ZOMBIE_WEAPON)
+		
 
 		get_tree().current_scene.add_child(enemy_drop)
+		enemy_drop.initialize(ZOMBIE_WEAPON)
 		enemy_drop.global_position = global_position

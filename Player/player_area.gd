@@ -18,7 +18,7 @@ func _on_area_entered(area: Area2D) -> void:
 		print(area.get_parent().get_equipable_data().type)
 		if area.get_parent().get_equipable_data().type == "weapon":
 			
-			weapon_container.switch_index(area.get_parent().get_equipable_data().index,  area.get_parent())
+			player.switch_weapon_index(area.get_parent().get_equipable_data().index,  area.get_parent())
 		elif area.get_parent().get_equipable_data().type == "legs":
 			player.change_legs_index(area.get_parent().get_equipable_data().index, area.get_parent())
 		elif area.get_parent().get_equipable_data().type == "torso":
@@ -32,7 +32,7 @@ func _on_area_exited(area: Area2D) -> void:
 	if area.is_in_group("equipable"):
 		if area.get_parent().get_equipable_data().type == "weapon":
 			if area.get_parent().get_equipable_data().index == weapon_container.current_weapon_index:
-				weapon_container.switch_index(-1)
+				player.switch_weapon_index(-1)
 			elif area.get_parent().get_equipable_data().type == "legs":
 				player.change_legs_index(-1)
 			elif area.get_parent().get_equipable_data().type == "torso":

@@ -9,7 +9,7 @@ var current_weapon_index = 0
 var drop_data
 
 func _ready() -> void:
-	swap_weapon()
+	swap_weapon(0)
 
 func switch_index(index, drop = null):
 	current_weapon_index = index
@@ -19,6 +19,7 @@ func swap_weapon(index: int = -1):
 	if current_weapon:
 		current_weapon.queue_free()
 		
+	current_weapon_index = index
 	current_weapon = weapons_data.weapons[current_weapon_index].instantiate()
 	
 	

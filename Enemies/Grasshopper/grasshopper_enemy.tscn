@@ -50,7 +50,7 @@ shape = SubResource("RectangleShape2D_ch880")
 position = Vector2(-1, -9)
 sprite_frames = SubResource("SpriteFrames_uyjgv")
 autoplay = "default"
-frame_progress = 0.580593
+frame_progress = 0.00856276
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(20, 0)
